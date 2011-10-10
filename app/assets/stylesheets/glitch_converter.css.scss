@@ -1,0 +1,49 @@
+// Place all the styles related to the glitch_converter controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.content {
+  background-color: #FFFFFF;
+  width: 900px;
+}
+
+.page-header {
+  margin-top: 20px;
+  margin-bottom: 10px;
+}
+
+input[type="submit"] {
+  width: 100px;
+}
+
+.h2 {
+  font-size: 24px;
+  line-height: 36px;
+}
+
+.or {
+  margin-left: 20px;
+  margin-right: 20px;
+}
+
+.doit {
+  margin-left: 60px;
+  margin-right: 20px;
+  padding: 9px 14px 9px;
+}
+
+.resource img {
+  max-width: 300px;
+  max-height: 300px;
+}
+
+.glitch {
+  margin-top: 30px;
+  margin-bottom: 30px;
+
+  img {
+    max-width: 200px;
+    max-height: 200px;
+  }
+}
+  

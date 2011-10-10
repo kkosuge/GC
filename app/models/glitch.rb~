@@ -1,0 +1,27 @@
+class Glitch
+
+  def initialize(file)
+    @file = file
+  end
+
+  def png
+    data = @file.split 'IDAT'
+    head, idat, tail, size = '', [], '', 0
+    data.each do |d|
+      idat.push d[0, size] if size > 0
+      head = d[0, d.size - 4] if size == 0
+      tail = d[(size + 4)..-1]
+      size = d[d.size - 4, 4].unpack('Na').first
+    end
+    raw = Zlib::Inflate.new.inflate(idat.join)
+
+    raw.gsub! /\w/, rand(10).to_s
+
+    cmp = Zlib::Deflate.deflate(raw)
+    size = [cmp.size].pack('N')
+    data = size + 'IDAT' + cmp
+    crc = [Zlib.crc32(cmp, Zlib.crc32('IDAT'))].pack('N')
+    head << data << crc << tail
+  end
+
+end

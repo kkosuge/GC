@@ -1,0 +1,33 @@
+<div class="container">
+<div class="content">
+<div class="page-header">
+<%= link_to root_path do %>
+<h1>Glitch Converter<small>  Glitch your png, jpg, gif, webp </small></h2>
+<% end %>
+</div>
+
+  <%= form_for @resource, :url => root_path, :multipart => true do |f| %>
+    <div class="resource well">
+    <span class="h2 or">URL </span>
+      <%= f.text_field :url , :value => params[:url].presence, :class=>"span5" %>
+    <span class="h2 or"> or </span>
+      <%= f.file_field :file %>
+      <%= f.submit "Glitch!", :class=>"danger btn doit" %>
+    </div>
+  <% end %>
+
+  <div class="resource"><%= image_tag resource_path %></div>
+  <div class="glitch">
+  <ul class="media-grid solution">
+  <% 20.times do %>
+    <% x, y = rand(10), rand64 %>
+    <li>
+    <%=link_to glitch_path(:x => x, :y => y), :target => "_blank" do %>
+      <%= image_tag glitch_path(:x => x, :y => y) , :class => "thumbnail" %>
+    <% end %>
+    </li>
+  <% end %>
+  </ul>
+  </div>
+</div>
+</div>
