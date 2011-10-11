@@ -19,7 +19,7 @@
   <div class="resource">
   <% if @sample %>
   <a href="<%= @sample[:link] %>" target="_blank" rel="popover" title="<%= @sample[:title] %>">
-    <%= image_tag resource_path %>
+    <img src="<%= "#{resource_path}?#{Time.now.to_i.to_s}" %>" alt="resource" /> 
   </a>
   <script>
     $(function () {
@@ -30,7 +30,7 @@
     })
   </script>
   <% else %>
-    <%= image_tag resource_path %>
+    <img src="<%= "#{resource_path}?#{Time.now.to_i.to_s}" %>" alt="resource" /> 
   <% end %>
   </div>
   
