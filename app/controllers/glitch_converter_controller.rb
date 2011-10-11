@@ -39,6 +39,7 @@ class GlitchConverterController < ApplicationController
     else
       solution = solution.jpeg
     end
+
     send_data solution, :type => session[:mime_type] || 'image/jpeg', :disposition => 'inline'
   end
 

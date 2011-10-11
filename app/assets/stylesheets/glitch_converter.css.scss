@@ -2,6 +2,15 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+body {
+  font-family: "Helvetica Neue",Helvetica,Verdana,'ヒラギノ角ゴ Pro W3',
+    'Hiragino Kaku Gothic Pro',osaka,'メイリオ',Meiryo,Arial,sans-serif;
+}
+
+h1 {
+  //font-size: 32px;
+}
+
 .content {
   background-color: #FFFFFF;
   width: 900px;

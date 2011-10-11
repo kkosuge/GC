@@ -3,8 +3,8 @@ class Resource < ActiveModelBase
 
   validate :content_type
   validate :file_size
- 
-  validates_format_of :url, :with => /^https?:\/\/.+\.(png|jpg|jpeg|gif|webp|bmp)$/
+
+  validates_format_of :url, :allow_blank => true, :with => /^https?:\/\/.+\.(png|jpg|jpeg|gif|webp|bmp)$/
 
   def content_type
     return unless file.present?
@@ -19,7 +19,7 @@ class Resource < ActiveModelBase
     return unless file.present?
 
     if self.file.size > 1024*730
-      errors.add(:file, "too large")
+      errors.add(:file, "too large ( max 730KB )")
     end
   end
 end
