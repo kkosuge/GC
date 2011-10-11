@@ -2,7 +2,7 @@
 <div class="content">
 <div class="page-header">
 <%= link_to root_path do %>
-<h1>Glitch Converter<small>  Glitch your png, jpg, gif, webp </small></h2>
+<h1>Glitch Converter <small>  Glitch your png, jpg, gif, webp </small></h2>
 <% end %>
 </div>
 
@@ -16,7 +16,24 @@
     </div>
   <% end %>
 
-  <div class="resource"><%= image_tag resource_path %></div>
+  <div class="resource">
+  <% if @sample %>
+  <a href="<%= @sample[:link] %>" target="_blank" rel="popover" title="<%= @sample[:title] %>">
+    <%= image_tag resource_path %>
+  </a>
+  <script>
+    $(function () {
+      $("a[rel=popover]")
+        .popover({
+           offset: 10
+         })
+    })
+  </script>
+  <% else %>
+    <%= image_tag resource_path %>
+  <% end %>
+  </div>
+  
   <div class="glitch">
   <ul class="media-grid solution">
   <% 20.times do %>

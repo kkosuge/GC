@@ -32,9 +32,17 @@ input[type="submit"] {
   padding: 9px 14px 9px;
 }
 
-.resource img {
+.resource {
+  margin-bottom: 17px;
+  border-bottom: 1px solid #DDD;
+  -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  -moz-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+  box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+
+  img {
   max-width: 300px;
   max-height: 300px;
+  }
 }
 
 .glitch {
@@ -47,3 +55,8 @@ input[type="submit"] {
   }
 }
   
+.popover {
+  .content {
+    display: none;
+  }
+}

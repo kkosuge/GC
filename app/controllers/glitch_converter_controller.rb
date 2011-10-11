@@ -3,13 +3,17 @@ class GlitchConverterController < ApplicationController
   def index
     if params[:resource]
       @resource = Resource.new(params[:resource])
-      if params[:resource][:file].present?
-        resource_file if @resource.valid?
-      elsif params[:resource][:url].present?
-        resource_url
-        redirect_to root_path :url => params[:resource][:url]
-        return
+
+      if @resource.valid?
+        if params[:resource][:file].present?
+          resource_file 
+        elsif params[:resource][:url].present?
+          resource_url
+          redirect_to root_path :url => params[:resource][:url]
+          return
+        end
       end
+
     elsif params[:url]
       @resource = Resource.new
       resource_url
@@ -17,7 +21,7 @@ class GlitchConverterController < ApplicationController
       sample = SampleImages.find(rand(SampleImages.count) + 1)
       session[:image] = sample.image
       session[:mime_type] = sample.mime_type
-     # session[:afi] = sample.link
+      @sample = { :link => sample.link, :title => sample.title }
       @resource = Resource.new
     end
   end

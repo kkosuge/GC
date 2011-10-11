@@ -3,6 +3,8 @@ class CreateSampleImages < ActiveRecord::Migration
     create_table :sample_images do |t|
       t.binary :image
       t.string :mime_type
+      t.string :link
+      t.string :title
 
       t.timestamps
     end
