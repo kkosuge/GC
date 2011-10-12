@@ -69,3 +69,15 @@ input[type="submit"] {
     display: none;
   }
 }
+
+.footer {
+  margin-bottom: 60px;
+  ul{
+    list-style: none;
+    li {
+      float: left;
+      margin-left: 5px;
+    }
+  }
+}
+
