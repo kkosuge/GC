@@ -1,4 +1,11 @@
 GlitchConverter::Application.routes.draw do
+
+  root :to => "glitch_converter#index"
+  get '/tmp/resorce', :to => 'glitch_converter#send_image', :as => 'resource'
+  get '/tmp/glitch(/:x)(/:y)', :to => 'glitch_converter#send_glitch', :as => 'glitch'
+  get '/set_sample', :to => 'glitch_converter#set_sample'
+  get '/about', :to => 'glitch_converter#about', :as => 'about'
+
   # The priority is based upon order of creation:
   # first created -> highest priority.
 
@@ -55,8 +62,4 @@ GlitchConverter::Application.routes.draw do
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
   # match ':controller(/:action(/:id(.:format)))'
-  root :to => "glitch_converter#index"
-  match '/tmp/resorce', :to => 'glitch_converter#send_image', :as => 'resource'
-  match '/tmp/glitch(/:x)(/:y)', :to => 'glitch_converter#send_glitch', :as => 'glitch'
-  match '/set_sample', :to => 'glitch_converter#set_sample'
 end

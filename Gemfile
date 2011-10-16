@@ -2,7 +2,7 @@ source 'http://rubygems.org'
 
 gem 'rails', '3.1.1'
 
-gem 'rmagick', :require => 'RMagick'
+#gem 'rmagick', :require => 'RMagick'
 
 # Bundle edge Rails instead:
 # gem 'rails',     :git => 'git://github.com/rails/rails.git'

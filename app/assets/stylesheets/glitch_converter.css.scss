@@ -42,6 +42,7 @@ input[type="submit"] {
 }
 
 .resource {
+  clear: both;
   margin-bottom: 17px;
   border-bottom: 1px solid #DDD;
   -webkit-box-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
@@ -75,9 +76,42 @@ input[type="submit"] {
   ul{
     list-style: none;
     li {
-      float: left;
+      display: inline;
       margin-left: 5px;
     }
   }
 }
 
+.description {
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: 1.1em;
+  line-height: 1.5em;
+  p {
+    font-size: 1.2em;
+  }
+}
+
+.logos {
+  border-top: 1px solid #DDD;
+  ul {
+    margin-top: 20px;
+    margin-bottom: 120px;
+    list-style: none;
+    li { 
+      float: left;
+      margin-left: 15px;
+      img {
+        max-width: 200px;
+        max-height: 100px;
+      }
+    }
+  }
+}
+
+.back {
+  background-image: image-url("back.png");
+  background-position: 0px center;
+  background-repeat: no-repeat;
+  padding-left: 20px;
+}

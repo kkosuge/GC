@@ -6,6 +6,5 @@ tmp/
 config/database.yml
 config/unicorn.rb
 config/deploy.rb
-Capfile
-public/assets/
+public/assets/*
 .DS_Store

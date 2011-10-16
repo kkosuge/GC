@@ -4,7 +4,7 @@ class Resource < ActiveModelBase
   validate :content_type
   validate :file_size
 
-  validates_format_of :url, :allow_blank => true, :with => /^https?:\/\/.+\.(png|jpg|jpeg|gif|webp|bmp)$/
+  validates_format_of :url, :allow_blank => true, :with => /^https?:\/\/.+\.(png|jpg|jpeg|gif|webp|bmp)$/i
 
   def content_type
     return unless file.present?

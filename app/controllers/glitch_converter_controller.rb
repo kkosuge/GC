@@ -48,12 +48,15 @@ class GlitchConverterController < ApplicationController
     redirect_to root_path
   end
 
+  def about
+    @resource = Resource.new
+  end
+
   private
 
   def demo
     file = "google_logo.png"
     path = File.expand_path('./public/resource')
-    pp "#{path}/#{file}"
     File.read("#{path}/#{file}",'rb') do |f|
       session[:image] = f.read
       session[:mime_type] = mime_type(f)

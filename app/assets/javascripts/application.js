@@ -6,4 +6,6 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require_tree .
+//= require bootstrap-popover
+//= require bootstrap-twipsy
+//= require plusone
