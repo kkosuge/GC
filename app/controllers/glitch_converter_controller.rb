@@ -31,6 +31,11 @@ class GlitchConverterController < ApplicationController
   end
 
   def send_glitch
+    unless session[:image]
+      redirect_to root_path
+      return
+    end
+
     solution = Glitch.new(session[:image],params)
 
     case session[:mime_type]
