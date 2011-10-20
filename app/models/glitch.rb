@@ -4,7 +4,8 @@ class Glitch
     @file = file
     @params = {
       :x => params[:x] || rand64,
-      :y => params[:y] || rand64
+      :y => params[:y] || rand64,
+      :range => params[:range] || 80
     }
   end
 
@@ -13,7 +14,7 @@ class Glitch
       @file[0..9] + @file[10..-1].gsub!(@params[:x],@params[:y])
     else
       ushiro = @file[10..-1]
-      80.times do
+      @params[:range].to_i.times do
         ushiro = ushiro.sub!(@params[:x],@params[:y])
       end
       @file[0..9] + ushiro
@@ -30,6 +31,11 @@ class Glitch
       size = d[d.size - 4, 4].unpack('Na').first
     end
     raw = Zlib::Inflate.new.inflate(idat.join)
+
+    # omoi
+    # (@params[:range].to_i*@params[:range].to_i).times do
+    #   raw.sub!(@params[:x], @params[:y])
+    # end
 
     raw.gsub!(@params[:x], @params[:y])
 

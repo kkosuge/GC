@@ -9,3 +9,4 @@
 //= require bootstrap-popover
 //= require bootstrap-twipsy
 //= require plusone
+//= require glitch_converter

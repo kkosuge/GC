@@ -1,5 +1,5 @@
 class Resource < ActiveModelBase
-  attr_accessor :url, :file
+  attr_accessor :url, :file, :range
 
   validate :content_type
   validate :file_size

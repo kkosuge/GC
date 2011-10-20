@@ -5,6 +5,8 @@ class GlitchConverterController < ApplicationController
       @resource = Resource.new(params[:resource])
 
       if @resource.valid?
+        flash[:range] = params[:resource][:range]
+
         if params[:resource][:file].present?
           resource_file 
         elsif params[:resource][:url].present?

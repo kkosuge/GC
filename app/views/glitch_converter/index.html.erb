@@ -9,15 +9,27 @@
   <%= form_for @resource, :url => root_path, :multipart => true do |f| %>
     <%= f.error_messages %>
     <div class="resource well">
+    <span id="options" class="btn small primary">Options</span>
     <span class="h2 or">URL </span>
-      <%= f.text_field :url , :value => params[:url].presence, :class=>"span5" %>
+      <%= f.text_field :url , :value => params[:url].presence, :class=>"span4" %>
     <span class="h2 or"> or </span>
       <%= f.file_field :file %>
       <%= f.submit "Glitch!", :class=>"danger btn doit" %>
+      <div id="params" style="display:none;">
+      <% if request.user_agent !~ /Chrome/ %>
+        <div class="alert-message error" style="margin-top:30px;">
+        <a href="http://www.google.co.jp/chrome/" target="_blank">Chrome</a> only
+        </div>
+      <% else %>
+      soft
+      <%= f.text_field :range, :type=>'range', :min=>"0", :max=>"18", :step=>"0.1", :class=>"range" %>
+      hard
+      <% end %>
+      </div>
     </div>
   <% end %>
 
-  <div class="resource">
+   <div class="resource">
   <% if @sample %>
   <a href="<%= @sample[:link] %>" target="_blank" rel="popover" title="<%= @sample[:title] %>">
     <img src="<%= "#{resource_path}?#{Time.now.to_i.to_s}" %>" alt="resource" /> 
@@ -40,8 +52,8 @@
   <% 16.times do %>
     <% x, y = rand(10), rand64 %>
     <li>
-    <%=link_to glitch_path(:x => x, :y => y), :target => "_blank" do %>
-      <%= image_tag glitch_path(:x => x, :y => y) , :class => "thumbnail" %>
+    <%=link_to glitch_path(:x => x, :y => y, :range => flash[:range]), :target => "_blank" do %>
+      <%= image_tag glitch_path(:x => x, :y => y, :range => flash[:range]) , :class => "thumbnail" %>
     <% end %>
     </li>
   <% end %>
